@@ -36,7 +36,15 @@ router.put('/atendimento/:id', async (req, res) => {
     }
 })
 
-
+router.put('/atendimento/:id', async (req, res) => {
+    try {
+        const atendimentoId = req.params.id
+        const atendimento = await Atendimentos.destroy({where: {id: atendimentoId}})
+        res.status(200).json(atendimento)
+    } catch (error) {
+        res.status(500).json(error)
+    }
+})
 
 
 module.exports = router
