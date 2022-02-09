@@ -1,41 +1,13 @@
-const {Model, DataTypes} = require('sequelize')
-const sequelize = require('../config/db')
+const mongoose = require('mongoose')
 
-class Atendimento extends Model {}
-
-Atendimento.init({
-    id: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
-        allowNull: false
-    },
-    cliente: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    pet:{
-        type: DataTypes.STRING
-    },
-    servico:{
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    data:{
-        type: DataTypes.DATE,
-        allowNull: false,
-    },  
-    status:{
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    observacoes:{
-        type: DataTypes.TEXT
-    }
-},{
-    sequelize,
-    modelName: 'atendimentos',
-    timestamps: false
+const atendimentoSchema = new mongoose.Schema({
+    cliente: {type: String,required: true, nullable: false},
+    pet:{type: String, nullable: false, required: true},
+    servico:{type: String,nullable: false, required: true},
+    status:{type: String, nullable: false, required: true},
+    data: {type: Date, required: true, nullable: false}
 })
+
+const Atendimento = mongoose.model('atendimento', atendimentoSchema)
 
 module.exports = Atendimento
