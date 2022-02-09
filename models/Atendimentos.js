@@ -1,6 +1,7 @@
 const {Model, DataTypes} = require('sequelize')
 const sequelize = require('../config/db')
 
+
 class Atendimento extends Model {}
 
 Atendimento.init({
@@ -24,7 +25,6 @@ Atendimento.init({
     data:{
         type: DataTypes.DATE,
         allowNull: false,
-        datetime: true
     },  
     status:{
         type: DataTypes.STRING,
