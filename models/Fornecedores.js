@@ -1,36 +1,12 @@
-const {Model, DataTypes} = require('sequelize')
-const sequelize = require('../config/db')
+const mongoose = require('mongoose')
 
-class Fornecedores extends Model {}
-
-Fornecedores.init({
-    id: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
-        allowNull: false
-    },
-    nome:{
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    empresa:{
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    email:{
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    catergoria:{
-        type: DataTypes.ENUM('ração', 'brinquedos'),
-        allowNull: false
-    }
-
-},{
-    sequelize,
-    modelName: 'fornecedores',
-    timestamps: false
+const forncedoresSchema = new mongoose.Schema({
+    nome: {type: String,required: true, nullable: false, min: 3, max: 100},
+    empresa:{type: String, nullable: false, required: true},
+    email:{type: String,nullable: false, required: true, min: 6, max: 200},
+    categoria:{type: String, enum: ["ração", "brinquedos"], nullable: false, required: true},
 })
+
+const Fornecedores = mongoose.model('fornecedores', forncedoresSchema)
 
 module.exports = Fornecedores
