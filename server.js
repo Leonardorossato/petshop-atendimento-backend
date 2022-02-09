@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.mongoConnection = mongoConnection
 
 app.use('/api', atendimentoRouter)
-app.use('/api', fornecedorRouter)
+app.use('/api/fornecedor', fornecedorRouter)
 
 app.listen(PORT, ()=>{
     console.log(`Server is running at ${PORT}`)
