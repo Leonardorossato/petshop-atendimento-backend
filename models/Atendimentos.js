@@ -1,7 +1,6 @@
 const {Model, DataTypes} = require('sequelize')
 const sequelize = require('../config/db')
 
-
 class Atendimento extends Model {}
 
 Atendimento.init({
