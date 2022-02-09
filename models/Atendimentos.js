@@ -21,6 +21,11 @@ Atendimento.init({
         type: DataTypes.STRING,
         allowNull: false
     },
+    data:{
+        type: DataTypes.DATE,
+        allowNull: false,
+        datetime: true
+    },  
     status:{
         type: DataTypes.STRING,
         allowNull: false
