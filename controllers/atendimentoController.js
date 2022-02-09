@@ -11,6 +11,16 @@ router.get('/', async(req, res)=>{
     }
 });
 
+router.get('/atendimento/:id', async(req, res)=>{
+    try {
+        const atendimentoId = req.params.id
+        const atendimento = await Atendimentos.findOne({where: {id: atendimentoId}})
+        res.status(200).json(atendimento)
+    } catch (error) {
+        res.status(500).json(error)
+    }
+});
+
 router.post('/atendimento', async (req, res) => {
     try {
         const atendimento = await Atendimentos.create(req.body)
@@ -36,7 +46,7 @@ router.put('/atendimento/:id', async (req, res) => {
     }
 })
 
-router.put('/atendimento/:id', async (req, res) => {
+router.delete('/atendimento/:id', async (req, res) => {
     try {
         const atendimentoId = req.params.id
         const atendimento = await Atendimentos.destroy({where: {id: atendimentoId}})
