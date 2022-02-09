@@ -5,7 +5,8 @@ const atendimentoSchema = new mongoose.Schema({
     pet:{type: String, nullable: false, required: true},
     servico:{type: String,nullable: false, required: true},
     status:{type: String, nullable: false, required: true},
-    data: {type: Date, required: true, nullable: false}
+    data: {type: Date, required: true, nullable: false},
+    observacoes:{type: String, nullable: false, required: true}
 })
 
 const Atendimento = mongoose.model('atendimento', atendimentoSchema)
