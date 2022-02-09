@@ -1,0 +1,8 @@
+{
+  "name": "petshop-atendimento-backend",
+  "version": "1.0.0",
+  "main": "server.js",
+  "author": "Leonardorossato",
+  "license": "MIT",
+  "private": false
+}
