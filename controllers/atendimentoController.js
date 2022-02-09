@@ -37,7 +37,7 @@ router.put('/atendimento/:id', async (req, res) => {
         atendimento.cliente = req.body.cliente
         atendimento.pet = req.body.pet
         atendimento.servico = req.body.servico
-        atendimento.status = req.body.cliente
+        atendimento.status = req.body.status
         atendimento.observacoes = req.body.observacoes
         atendimento.data = req.body.data
         await atendimento.save()
