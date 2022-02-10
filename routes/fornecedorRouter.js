@@ -36,7 +36,7 @@ router.put('/fornecedores/:id', async (req, res) => {
         const updatedFornecdor = await Fornecedores.findByIdAndUpdate(req.params.id,{
             $set: req.body,
         },{new: true})
-        res.status(200).json(updatedFornecdor)
+        res.status(204).json(updatedFornecdor)
     }catch(err) {
         res.status(500).json(err)
     }
@@ -50,6 +50,5 @@ router.delete('/fornecedores/:id', async (req, res) => {
         res.status(500).json(err)
     }
 })
-
 
 module.exports = router
