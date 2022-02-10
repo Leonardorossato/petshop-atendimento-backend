@@ -22,12 +22,12 @@ router.get('/atendimento/:id', async(req, res)=>{
 });
 
 router.post('/atendimento', async (req, res) => {
-    const atendimento = {cliente, pet, servico, status, data, observacoes} = req.body
-    const newAtendimento = new Atendimento({cliente,pet,servico,status,data,observacoes})
+    const atendimento = { pet, servico, status, data, observacoes} = req.body
+    const newAtendimento = new Atendimento({pet,servico,status,data,observacoes})
     newAtendimento.save().then(() =>{
         res.status(201).json(atendimento)
     }).catch((err) =>{
-        es.status(400).json('Error to add a new payment' + err)
+        res.status(400).json('Error to add a new atendimento' + err)
     });
 })
 
